@@ -48,10 +48,10 @@ class MyCustomFormState extends State<MyCustomForm> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextFormField(
-            // The validator receives the text that the user has entered.
+            decoration: InputDecoration(labelText: 'Email'),
             validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter some text';
+              if (value == null || value.isEmpty || !value.contains('@')) {
+                return 'Enter a valid email';
               }
               return null;
             },
