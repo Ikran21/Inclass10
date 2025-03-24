@@ -48,6 +48,16 @@ class MyCustomFormState extends State<MyCustomForm> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextFormField(
+            decoration: InputDecoration(labelText: 'Name'),
+            // The validator receives the text that the user has entered.
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter your Name';
+              }
+              return null;
+            },
+          ),
+          TextFormField(
             decoration: InputDecoration(labelText: 'Email'),
             validator: (value) {
               if (value == null || value.isEmpty || !value.contains('@')) {
@@ -56,6 +66,7 @@ class MyCustomFormState extends State<MyCustomForm> {
               return null;
             },
           ),
+
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16),
             child: ElevatedButton(
